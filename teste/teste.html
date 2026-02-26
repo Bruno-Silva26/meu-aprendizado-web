@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Oscar - Consultório Odontológico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a1a2e;
+            --primary-blue: #0f4c75;
+            --accent-cyan: #3282b8;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --gold-accent: #d4af37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header/Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .cta-button {
+            background: var(--accent-cyan);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(50, 130, 184, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-10px);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .rating-card {
+            bottom: 10%;
+            left: -5%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+
+        .rating-text {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .contact-card {
+            top: 10%;
+            right: -5%;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin: 0.3rem 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--primary-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+        }
+
+        .credential-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-cyan);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Differentials Section */
+        .differentials {
+            padding: 6rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .differentials-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .differential-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .differential-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .differential-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .differential-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .differential-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 3rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image img {
+                max-width: 400px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .floating-card {
+                position: static;
+                margin: 1rem auto;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Dr. Oscar</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="cta-button">Agendar Consulta</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Seu sorriso não tem
+                    <span class="highlight">hora para brilhar.</span>
+                </h1>
+                <p>Odontologia humanizada com foco na excelência técnica e no bem-estar dos pacientes. Transforme seu sorriso com quem realmente entende do assunto.</p>
+                <a href="#contato" class="cta-button">Agendar Avaliação Gratuita</a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">Pacientes Atendidos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9★</span>
+                        <span class="stat-label">Avaliação Google</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="dr-oscar.png" alt="Dr. Oscar" id="doctor-image">
+                
+                <div class="floating-card rating-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.9 no Google</div>
+                </div>
+                
+                <div class="floating-card contact-card">
+                    <p><strong>📞 Atendimento:</strong></p>
+                    <p>Segunda a Sexta</p>
+                    <p>8h - 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <div class="section-header">
+            <h2>Seu sorriso em boas mãos</h2>
+            <p>Tratamentos especializados com tecnologia de ponta e atendimento humanizado</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🦷</div>
+                <h3>Implantes Dentários</h3>
+                <p>Reabilitação oral completa com implantes de última geração. Recupere a função mastigatória e a estética do seu sorriso com segurança e precisão.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Estética Dental</h3>
+                <p>Transforme seu sorriso com clareamento, lentes de contato e facetas. Resultados naturais que elevam sua autoestima e confiança.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Ortodontia</h3>
+                <p>Alinhamento dental com aparelhos fixos, móveis ou invisíveis. Tecnologia moderna para um sorriso perfeitamente alinhado.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Prevenção</h3>
+                <p>Limpeza, profilaxia e check-ups regulares. Prevenir é sempre melhor que remediar - cuide da saúde bucal de forma contínua.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Tratamento de Canal</h3>
+                <p>Endodontia moderna e indolor. Salve seu dente natural com procedimentos minimamente invasivos e alta tecnologia.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Odontopediatria</h3>
+                <p>Cuidado especial com os pequenos. Atendimento lúdico e acolhedor para criar experiências positivas desde cedo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Mais que um dentista, um parceiro da sua saúde.</h2>
+                <p>Com mais de 15 anos de experiência, o Dr. Oscar se dedica a oferecer tratamentos odontológicos de excelência, aliando técnica avançada ao cuidado humanizado.</p>
+                <p>Acredito que cada sorriso é único e merece atenção personalizada. Por isso, meu compromisso vai além dos procedimentos técnicos - construo relacionamentos de confiança com cada paciente.</p>
+                
+                <div class="credentials">
+                    <div class="credential-item">
+                        <div class="credential-icon">🎓</div>
+                        <div>
+                            <strong>Formação</strong>
+                            <p>Graduação em Odontologia pela UFMS</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">📜</div>
+                        <div>
+                            <strong>Especialização</strong>
+                            <p>Pós-graduação em Implantodontia e Estética</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">🏆</div>
+                        <div>
+                            <strong>Certificações</strong>
+                            <p>Membro da APCD e ABO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="dr-oscar.png" alt="Dr. Oscar" id="about-doctor-image" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentials Section -->
+    <section class="differentials">
+        <div class="section-header">
+            <h2>Como cuidamos de você</h2>
+            <p>Nosso protocolo de atendimento prioriza sua experiência e resultados</p>
+        </div>
+        
+        <div class="differentials-grid">
+            <div class="differential-card">
+                <div class="differential-icon">🤝</div>
+                <h3>Atendimento Humanizado</h3>
+                <p>Escutamos suas necessidades e criamos um plano personalizado para você.</p>
+            </div>
+            
+            <div class="differential-card">
+                <div class="differential-icon">⚡</div>
+                <h3>Tecnologia Avançada</h3>
+                <p>Equipamentos de última geração para diagnósticos precisos e tratamentos eficazes.</p>
+            </div>
+            
+            <div class="differential-card">
+                <div class="differential-icon">🎯</div>
+                <h3>Diagnóstico Completo</h3>
+                <p>Avaliação minuciosa antes de qualquer procedimento para garantir o melhor resultado.</p>
+            </div>
+            
+            <div class="differential-card">
+                <div class="differential-icon">💎</div>
+                <h3>Materiais Premium</h3>
+                <p>Utilizamos apenas materiais certificados e das melhores marcas do mercado.</p>
+            </div>
+            
+            <div class="differential-card">
+                <div class="differential-icon">📱</div>
+                <h3>Acompanhamento Contínuo</h3>
+                <p>Suporte e follow-up após os procedimentos para garantir sua satisfação.</p>
+            </div>
+            
+            <div class="differential-card">
+                <div class="differential-icon">🏥</div>
+                <h3>Ambiente Acolhedor</h3>
+                <p>Consultório moderno e confortável para você se sentir em casa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contato" class="cta-section">
+        <h2>Pronto para transformar seu sorriso?</h2>
+        <p>Agende uma avaliação gratuita e descubra como podemos ajudar você</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/5567999999999?text=Olá! Gostaria de agendar uma avaliação com o Dr. Oscar" class="btn-primary">
+                Agendar pelo WhatsApp
+            </a>
+            <a href="tel:+5567999999999" class="btn-secondary">Ligar Agora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dr. Oscar</h3>
+                <p>Odontologia humanizada com excelência técnica.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">💼</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📞 (67) 99999-9999</p>
+                <p>📧 contato@droscar.com.br</p>
+                <p>📍 Campo Grande/MS</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horário</h3>
+                <p>Segunda a Sexta: 8h - 18h</p>
+                <p>Sábado: 8h - 12h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <a href="#servicos">Serviços</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+                <a href="#">Blog</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dr. Oscar - Todos os direitos reservados | CRO-MS XXXXX</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5567999999999?text=Olá! Gostaria de agendar uma consulta" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.408-5.248-0.292-0.508c-1.235-2.144-1.886-4.583-1.886-7.090 0-7.653 6.22-13.867 13.867-13.867s13.867 6.213 13.867 13.867-6.213 13.867-13.867 13.867zM21.98 18.584c-0.397-0.2-2.348-1.158-2.713-1.29s-0.628-0.2-0.893 0.2c-0.265 0.398-1.026 1.29-1.256 1.556s-0.464 0.298-0.86 0.1c-0.398-0.2-1.677-0.618-3.195-1.972-1.182-1.053-1.98-2.353-2.21-2.75s-0.025-0.613 0.174-0.812c0.179-0.178 0.397-0.463 0.596-0.695s0.265-0.398 0.397-0.663c0.132-0.264 0.066-0.497-0.033-0.695s-0.893-2.15-1.223-2.945c-0.322-0.776-0.649-0.67-0.893-0.683-0.231-0.012-0.496-0.015-0.761-0.015s-0.695 0.099-1.060 0.497c-0.364 0.398-1.389 1.357-1.389 3.308s1.421 3.836 1.62 4.102c0.199 0.265 2.807 4.285 6.802 6.009 0.95 0.411 1.691 0.655 2.269 0.839 0.957 0.303 1.828 0.26 2.517 0.158 0.768-0.115 2.348-0.96 2.679-1.888s0.331-1.723 0.232-1.888c-0.1-0.167-0.364-0.265-0.761-0.463z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .differential-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
