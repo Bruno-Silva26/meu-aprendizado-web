@@ -1,21 +1,23 @@
-# 🎨 Estudos de HTML & CSS
+# 🎨 Estudos de HTML, CSS & JavaScript
 
-> Repositório dedicado ao aprendizado e prática de HTML e CSS — do básico ao avançado.
+> Repositório dedicado ao aprendizado e prática de HTML, CSS e JavaScript — do básico ao avançado.
 
 ---
 
 ## 📚 Sobre o Repositório
 
-Este repositório reúne todos os meus estudos, experimentos e projetos práticos desenvolvidos ao longo da minha jornada aprendendo **HTML** e **CSS**. O objetivo é documentar minha evolução e servir como referência para conceitos aprendidos.
+Este repositório reúne todos os meus estudos, experimentos e projetos práticos desenvolvidos ao longo da minha jornada aprendendo **HTML**, **CSS** e **JavaScript**. O objetivo é documentar minha evolução e servir como referência para conceitos aprendidos.
 
 ---
 
 ## 🗂️ Estrutura
 
 ```
-📁 html-css/
-├── 📁 desafios
-├── 📁 exercicios      
+📁 meu-aprendido-web/
+├── 📁 Curso em video/
+│   ├── 📁 desafios
+│   └── 📁 executivos
+└── 📁 B7web/
 ```
 
 ---
@@ -45,7 +47,7 @@ Este repositório reúne todos os meus estudos, experimentos e projetos prático
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/Bruno-Silva26/meu-aprendido-web.git
    ```
 2. Abra qualquer arquivo `.html` diretamente no navegador ou use a extensão **Live Server** no VS Code.
 
@@ -55,12 +57,11 @@ Este repositório reúne todos os meus estudos, experimentos e projetos prático
 
 - ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 - ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 - ![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)
 
 ---
 
 ## 📝 Licença
 
-Este repositório é de uso pessoal para fins educacionais.
-
----
+Este repositório é de uso pessoal para fins educacionais. Licença MIT.
