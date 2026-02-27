@@ -1,0 +1,15 @@
+.dubai {
+    width: 500px;
+    height: 500px;
+    object-fit:cover; 
+/*O object-fit controla como uma imagem ou vídeo se ajusta dentro do seu contêiner. Os valores são:
+fill (padrão) → estica a imagem para preencher o contêiner completamente, distorcendo se as proporções forem diferentes.
+
+contain → a imagem cabe inteira dentro do contêiner sem distorcer, mas podem aparecer espaços vazios nas laterais ou em cima/baixo.
+
+(cover → a imagem preenche o contêiner inteiro sem distorcer, mas pode cortar partes da imagem para isso.)
+
+none → exibe a imagem no seu tamanho original, ignorando o tamanho do contêiner. Pode ultrapassar as bordas.
+
+scale-down → compara none e contain e usa o que deixar a imagem menor. Nunca aumenta a imagem além do tamanho original.*/
+}

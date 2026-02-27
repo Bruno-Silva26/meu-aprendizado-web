@@ -1,0 +1,33 @@
+.tabelas {
+    text-align: center;
+    color: aqua;
+    background-color: blue;
+}
+
+
+table {
+    width: 600px;    
+}
+
+table thead {
+    background-color: green;
+}
+
+table tbody {
+    background-color: rgb(97, 243, 0);
+}
+
+th, td {
+    padding:  10px;
+}
+
+tbody td:hover{
+    background-color: rgb(247, 247, 247) ;
+}
+tbody td{
+    border-bottom: 1px solid green;
+}
+
+tbody tr{
+    text-align: center;
+}
