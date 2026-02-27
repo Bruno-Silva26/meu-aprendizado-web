@@ -1,0 +1,45 @@
+@charset "UTF_8";
+
+
+
+
+
+.testando {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#d1:hover,
+#d2:hover,
+#d3:hover{
+    background-color: rgb(247, 0, 0);
+    
+}
+
+#d1:hover,
+#d2:hover,
+#d3:hover {
+    box-shadow: 15px 15px 15px #00000088;;
+}
+
+css.testando {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#d1 {
+    background-color: green;
+}
+#d2 {
+    background-color: rgb(19, 4, 221);
+}
+#d3 {
+    background-color: rgb(238, 255, 0);
+}
+
