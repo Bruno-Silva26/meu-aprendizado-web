@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+       
+        label {
+            display: block;
+            margin: 10px 5px; /* 10px em cima/baixo, 5px esquerda/direita */
+        }
+        .inline{
+            display: inline;
+        }
+        #enviar{
+            margin-top: 28px;
+        }
+        .contrato{
+          margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1>formularios</h1>
+    <h2>area de cadastro</h2>
+    <form action="../tebelas/tabelas.html" method="get">    <!--pode ser ou GET OU POST-->
+
+        
+        <label for="nome">Nome completo:</label>
+
+        <input type="text" name="nome" id="nome">
+
+        <label for="Email">Email</label>
+
+        <input type="email" name="usuario" value="brunorsilva048@gmail.com" id="Email">
+
+        <div class="contrato">
+            <input type="checkbox" name="termos" id="termos">
+            <label  class="inline" for="termos">Eu declaro que li e aceito os termos de contrato</label>
+        </div>
+        
+
+        <input type="submit" value="cadastrar" id="enviar">
+
+    </form>
+
+    <h2>area de login</h2>
+    <form  action="../tebelas/tabelas.html" method="get">
+        <input type="color">
+        <input type= "datetime-local">
+        <input type="range">
+        <input type="tel">
+    </form>
+
+
+
+    <h2>outras tags</h2>
+
+    <form action="../tebelas/tabelas.html" method="get">
+        <select name="ordenacao">
+            <option value="bestsaler">mais vendidos</option>
+            <option value="lastsaler" selected>mais recente</option>
+        </select>
+        <input type="submit" value="fazer cadastro">
+    </form>
+
+    <form action="../tebelas/tabelas.html" method="get">
+        <textarea name="descricao" style="width: 400px; height: 40px;"></textarea>
+        <input type="submit" value="descricao">
+    </form>
+
+    <form action="../tebelas/tabelas.html" method="get">
+        <input  name testinho type="text">
+        <button value="testinho">tetxo do proprio botao</button>
+    </form>
+
+
+
+</body>
+</html>

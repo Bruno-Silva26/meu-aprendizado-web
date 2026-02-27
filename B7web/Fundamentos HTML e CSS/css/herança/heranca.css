@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: calc(100% - 20px);
+    height: 200px;
+    background-color: #ccc;
+    font-size: 30px;
+    color: blue;
+
+    border: 3px solid blueviolet
+}
+
+.container strong {
+    color: red;
+    border: 2px solid black;
+}

@@ -1,0 +1,57 @@
+body {
+    background-color: #00ff2a;
+}
+
+
+h1 {
+    font-size: 80px;
+    font-weight: bolder;
+}
+table, td {
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+    color: aliceblue;
+   
+}
+table {
+    width:400px;
+    height: 400px;
+}
+
+@media screen {
+    
+}
+
+
+
+@media only print {
+    h1{
+        font-size: 20px;
+        font-weight: normal;
+    }
+    table, td {
+        border-color: rgb(0, 0, 0);
+    }
+}
+
+@media (min-width: 1000px) {
+
+    body{
+        background-color: blue;
+    }
+
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+    body{
+        background-color: purple;
+    }
+}
+
+
+@media (min-width: 300px) and (max-width: 699px){
+    body{
+        background-color: yellow;
+    }
+}
+
