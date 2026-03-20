@@ -1,0 +1,57 @@
+a , input{
+    display: block;
+}
+
+
+input[name= "senha"] {
+    background-color: red;
+}
+
+
+a[href*= "tecnologia"] {       /* o {*} olha para se contem tal palavra*/
+    background-color: rgba(0, 0, 255, 0.432);
+}
+
+a[href*="futebol"]{
+    background-color: green;
+}
+
+
+a[href*="palmeiras"]{
+    background-color: green;
+}
+
+
+a[href ^="http:"]{          /* o {^} olha para o começo*/
+    background-color: rgb(78, 0, 0);
+}
+
+a[href ^="https:"]{
+    background-color: rgb(40, 0, 78);
+}
+
+
+a[href$="html"]{            /*olha para o final*/
+    background-color: yellow;
+}
+
+
+
+
+
+/*------------------------------------------------------------------*/
+
+
+
+.teste {
+    margin: 100px;
+}
+
+.teste div {
+    margin: 20px;
+    height: 30px;
+}
+
+.teste div:empty {          /* ve alguma div vazia */
+    background-color: red;
+}

@@ -1,0 +1,16 @@
+tópicos aprendidos:
+
+Display: Flex;
+
+Flex-direction:row ou Column;
+
+Flex-flow: row wrap;            wrap=> quebra a linha     |   nowrap => Não quebra a linha
+
+
+Justify-content: center; => alinha conforme a direção do display
+
+
+Align-itens:  Alinha os itens dentro de cada linha no eixo cruzado (vertical, no caso). Ele age em cada linha de forma independente.
+
+
+align-content:  Alinha o conjunto de todas as linhas como um bloco dentro do container. Só funciona quando há flex-wrap e mais de uma linha.
